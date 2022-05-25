@@ -60,13 +60,9 @@ def enc_one_round(p,k):
   
     #P2#
     r_p = permute(r,P2);
-
-    #P2 Removed
-    #r_p = r;
    
     #Left Shift   
     r_7 = rol(r,7);
-    #r_7 = r * 1;
     
     #Substitution
     r_s = substitute (r_7,S);
@@ -76,9 +72,6 @@ def enc_one_round(p,k):
 
     #P1
     r = permute(l,P1);
-
-    #P1 removed
-    #r = l;
 
     l=r_p;
     return(l,r);
@@ -90,8 +83,6 @@ def dec_one_round(c,k):
     #P2
     l_p = permute(l,P2_r);
 
-    #P2 removed
-    #l_p = l;
    
     #Left Shift   
     l_7 = rol(l_p,7);
@@ -102,9 +93,6 @@ def dec_one_round(c,k):
 
     #P1
     r_p = permute(r,P1_r);
-
-    #P1 removed
-    #r_p = r;
 
     #Modular Addition
     l= (l_s^r_p^k);
